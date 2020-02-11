@@ -1,42 +1,36 @@
 import static org.junit.Assert.assertEquals;
 
-import java.math.BigDecimal;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class SquareItTest {
 
-	private SquareIt squareIt;
+	// -x * -x = x^2
+	// x * x = x^2
+	// -x * x = -x^2
+	// STRING * STRING throw error
+	// STRING * x throw
+	// ...
+
+	private Squarer squarer;
+	private final double delta = 1e-10;
 
 	@Before
-	public void setup() {
-		this.squareIt = new SquareIt();
+	public void begin() {
+		this.squarer = new Squarer();
 	}
 
 	@After
-	public void destroy() {
-		this.squareIt = null;
+	public void after() {
+		squarer = null;
 	}
 
 	@Test
-	public void TestSquare_WhatIsZero() {
-		int zero = 0;
-		assertEquals(zero, this.squareIt.square(zero), 10e-8);
+	public void Squarer_PositiveSquareIsPositive() {
+		double a = 10;
+		double out = this.squarer.square(a);
+
+		assertEquals(100, out, delta);
 	}
-
-	@Test
-	public void TestSquare_WhatIsNegative() {
-		int minus = -10;
-		double smallMinus = -0.1;
-		int bigMinus = -10_000;
-		int biggerMinus = -1_000_000_000;
-		BigDecimal b = new BigDecimal(biggerMinus);
-
-		assertEquals(100, this.squareIt.square(minus), 10e-6);
-		assertEquals(0.01, this.squareIt.square(smallMinus), 10e-6);
-		assertEquals(1e8, this.squareIt.square(bigMinus), 10e-6);
-		assertEquals(1e18, this.squareIt.square(b), 10e-6);
-	}
-
 }
