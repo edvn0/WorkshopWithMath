@@ -33,13 +33,4 @@ public class SquareItTest {
 
 		assertEquals(100, out, delta);
 	}
-
-	@Test
-	public void Squarer_PositiveNegativeSquareIsNegative(){
-		double a = 10;
-		double b = -10;
-		double out = this.squarer.squared(a,b);
-
-		assertEquals(-109, out, delta);
-	}
 }
