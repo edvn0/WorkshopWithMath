@@ -28,7 +28,4 @@ public class SquareItTest {
 
 		assertEquals(100, out, delta);
 	}
-
-
-
 }
