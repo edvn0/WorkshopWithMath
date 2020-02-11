@@ -1,8 +1,8 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class SquareItTest {
 
@@ -41,13 +41,4 @@ public class SquareItTest {
 
 		assertEquals(-100, out, delta);
 	}
-	@Test
-	public void Squarer_PositiveNegativeIsNegativeShouldFail() {
-		double a = 10;
-		double b = -10;
-		double out = this.squarer.square(a,b);
-
-		assertEquals(-110, out, delta);
-	}
-
 }
